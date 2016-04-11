@@ -4,6 +4,6 @@
         xmlns:loc="clr-namespace:DataManagement.Components"        
         Title="Manager" MinHeight="250" MinWidth="725">
     <Grid>
-        <loc:ManagerView />
+        <loc:ManagerView HorizontalAlignment="Stretch" />
     </Grid>
 </Window>

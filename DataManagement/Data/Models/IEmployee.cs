@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManagement.Data
 {
-   interface IEmployee
+    public interface IEmployee
    {
       string Name { get; set; }
       string Department { get; set; }

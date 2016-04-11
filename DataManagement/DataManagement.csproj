@@ -53,8 +53,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\EmployeeViewModel.cs" />
     <Compile Include="Components\IEmployeeViewModel.cs" />
     <Compile Include="Components\IManagerViewModel.cs" />
+    <Compile Include="Components\ManagerViewModel.cs" />
+    <Compile Include="Data\Services\EmployeeService.cs" />
+    <Compile Include="Data\Services\IEmployeeService.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="Utils\DelegateCommand.cs" />
     <Compile Include="Utils\NotificationObject.cs" />
     <Page Include="Components\ManagerView.xaml">

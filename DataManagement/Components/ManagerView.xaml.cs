@@ -20,9 +20,15 @@ namespace DataManagement.Components
     /// </summary>
     public partial class ManagerView : UserControl
     {
+
+
         public ManagerView()
         {
             InitializeComponent();
+            var managerViewModel = Factory.CreateManagerViewModel();
+            
+            managerViewModel.Initialize();
+            this.DataContext = managerViewModel;
         }
     }
 }
