@@ -1,7 +1,8 @@
-﻿<Window x:Class="DataManagement.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:loc="clr-namespace:DataManagement.Components"        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DataManagement.MainWindow"        
         Title="Manager" MinHeight="250" MinWidth="725">
     <Grid>
         <loc:ManagerView HorizontalAlignment="Stretch" />

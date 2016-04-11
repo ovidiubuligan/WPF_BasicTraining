@@ -27,10 +27,16 @@ namespace DataManagement.Data.Services
          Random rand = new Random();
          for (int i = 1; i <= GeneratedEmployeesCound; i++)
          {
+             var cardType = "Visa";
+             if (rand.Next(1) == 0) cardType = "Mastercard";
+             var creditCard = Factory.CreateCard("" + rand.Next(1000, 9999) + rand.Next(1000, 9999) + rand.Next(1000, 9999) + rand.Next(1000, 9999),
+                cardType)
+             ;
+
             this.employees.Add(Factory.CreateEmployee("Employee " + i, 
                                                       "Department " + (i % 10 + 1), 
                                                       rand.Next(2000, 150000), 
-                                                      "" + rand.Next(1000, 9999) + rand.Next(1000, 9999) + rand.Next(1000, 9999) + rand.Next(1000, 9999)));
+                                                      creditCard));
          }   
       }
    }

@@ -57,6 +57,8 @@
     <Compile Include="Components\IEmployeeViewModel.cs" />
     <Compile Include="Components\IManagerViewModel.cs" />
     <Compile Include="Components\ManagerViewModel.cs" />
+    <Compile Include="Data\Models\CreditCard.cs" />
+    <Compile Include="Data\Models\ICreditCard.cs" />
     <Compile Include="Data\Services\EmployeeService.cs" />
     <Compile Include="Data\Services\IEmployeeService.cs" />
     <Compile Include="Factory.cs" />

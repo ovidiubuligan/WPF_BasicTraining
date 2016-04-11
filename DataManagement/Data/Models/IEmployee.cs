@@ -11,6 +11,6 @@ namespace DataManagement.Data
       string Name { get; set; }
       string Department { get; set; }
       double Salary { get; set; }
-      string CardNumber { get; set; }
+      ICreditCard Card { get; set; }
    }
 }

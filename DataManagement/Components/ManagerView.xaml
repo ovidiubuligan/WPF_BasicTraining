@@ -66,7 +66,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <DockPanel>
-                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=Employee.CardNumber}" ToolTip="{Binding Path=Employee.CardNumber}" />
+                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=Employee.Card.CardNumber}" ToolTip="{Binding Path=Employee.Card.CardNumber}" />
                                     </DockPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

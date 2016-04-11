@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataManagement.Components;
 using DataManagement.Data;
+using DataManagement.Data.Models;
 using DataManagement.Data.Services;
 
 namespace DataManagement
@@ -22,14 +23,24 @@ namespace DataManagement
          return employeeService;
       }
 
-      public static IEmployee CreateEmployee(string name, string department, double salary, string cardNumber) 
+
+       public static ICreditCard CreateCard(string cardNumber, string cardType)
+       {
+           return new CreditCard()
+           {
+               CardNumber = cardNumber,
+               CardType = cardType
+           };
+       }
+
+       public static IEmployee CreateEmployee(string name, string department, double salary, ICreditCard card) 
       {
          return new Employee()
          {
             Name = name,
             Department = department,
             Salary = salary,
-            CardNumber = cardNumber
+            Card = card
          };
       }
 

@@ -25,7 +25,7 @@ namespace DataManagement.Components
                                              && (String.IsNullOrEmpty(this.filterName) || x.Employee.Name.IndexOf(this.filterName, StringComparison.OrdinalIgnoreCase) > -1)
                                              && (String.IsNullOrEmpty(this.filterDepartment) || x.Employee.Department.IndexOf(this.filterDepartment, StringComparison.OrdinalIgnoreCase) > -1)
                                              && (String.IsNullOrEmpty(this.filterSalary) || (x.Employee.Salary + "").IndexOf(this.filterSalary + "", StringComparison.OrdinalIgnoreCase) > -1)
-                                             && (String.IsNullOrEmpty(this.filterCardNumber) || x.Employee.CardNumber.IndexOf(this.filterCardNumber, StringComparison.OrdinalIgnoreCase) > -1)
+                                             && (String.IsNullOrEmpty(this.filterCardNumber) || x.Employee.Card.CardNumber.IndexOf(this.filterCardNumber, StringComparison.OrdinalIgnoreCase) > -1)
                                        ).ToList<IEmployeeViewModel>();
          }
       }
