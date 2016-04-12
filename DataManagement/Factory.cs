@@ -57,7 +57,7 @@ namespace DataManagement
 
       public static IEditEmployeeViewModel CreateEditEmployeeViewModel(IEmployee employee)
       {
-          return new EditEmployeeViewModel(employee);
+          return new EditEmployeeViewModel();
       }
    }
 }
