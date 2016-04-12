@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataManagement.Components;
+using DataManagement.Components.Dialogs;
 using DataManagement.Data;
 using DataManagement.Data.Models;
 using DataManagement.Data.Services;
@@ -52,6 +53,11 @@ namespace DataManagement
       public static IManagerViewModel CreateManagerViewModel()
       {
          return new ManagerViewModel();
+      }
+
+      public static IEditEmployeeViewModel CreateEditEmployeeViewModel(IEmployee employee)
+      {
+          return new EditEmployeeViewModel(employee);
       }
    }
 }

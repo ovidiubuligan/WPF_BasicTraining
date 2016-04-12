@@ -61,6 +61,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\ListViewBehavior.cs" />
+    <Compile Include="Components\Dialogs\EditEmployeeDialog.xaml.cs">
+      <DependentUpon>EditEmployeeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Dialogs\EditEmployeeViewModel.cs" />
+    <Compile Include="Components\Dialogs\IEditEmployeeViewModel.cs" />
     <Compile Include="Components\EmployeeViewModel.cs" />
     <Compile Include="Components\IEmployeeViewModel.cs" />
     <Compile Include="Components\IManagerViewModel.cs" />
@@ -72,6 +78,10 @@
     <Compile Include="Factory.cs" />
     <Compile Include="Utils\DelegateCommand.cs" />
     <Compile Include="Utils\NotificationObject.cs" />
+    <Page Include="Components\Dialogs\EditEmployeeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\ManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,9 +132,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Behaviors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

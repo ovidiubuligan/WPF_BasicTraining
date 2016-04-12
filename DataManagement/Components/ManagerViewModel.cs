@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using DataManagement.Components.Dialogs;
 using DataManagement.Data;
 using DataManagement.Utils;
 
@@ -12,6 +14,11 @@ namespace DataManagement.Components
    class ManagerViewModel : NotificationObject, IManagerViewModel
    {
       private List<IEmployeeViewModel> employees;
+
+      public ManagerViewModel()
+      {
+          this.editCommand = new DelegateCommand(OnEdit);
+      }
 
       public List<IEmployeeViewModel> FilteredEmployees
       {
@@ -94,5 +101,30 @@ namespace DataManagement.Components
             this.employees.Add(Factory.CreateEmployeeViewModel(employee)); 
          }
       }
+
+      private DelegateCommand editCommand;
+      public ICommand EditCommand
+      {
+          get
+          {
+              return this.editCommand;
+          }
+      }
+
+      private void OnEdit(object obj)
+      {
+          IEmployeeViewModel selectedEmployee = this.employees.FirstOrDefault(x => x.IsSelected);
+          if (selectedEmployee == null)
+          {
+              return;
+          }
+          EditEmployeeDialog dlg = new EditEmployeeDialog(selectedEmployee.Employee);
+          if ((bool)dlg.ShowDialog())
+          {
+              this.RaisePropertyChanged("FilteredEmployees");
+          }
+      }
+
+
    }
 }
