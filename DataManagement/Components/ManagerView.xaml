@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:behavior="clr-namespace:DataManagement.Behaviors"
+             xmlns:components="clr-namespace:DataManagement.Components"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="900">
     <Grid>
@@ -26,9 +27,13 @@
         </Grid>
 
         <ListView Grid.Row="1" SelectionMode="Extended" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                  ItemsSource="{Binding FilteredEmployees}" >
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
+                  ItemsSource="{Binding FilteredEmployees}" 
+                  Style="{DynamicResource MyListViewStyle}">
+        
+            <!-- set our scroll to selection behavior -->
+            <ListView.ItemContainerStyle >
+                <!-- apply our List Item Styles from Style.xaml using BasedOn -->
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MyListViewItemStyle}">
                     <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}"/>
                     <Setter Property="behavior:ListViewBehavior.IsBroughtIntoViewWhenSelected" Value="True"/>
                 </Style>
@@ -36,7 +41,17 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn x:Name="EmployeeName" Header="Name" Width="150">
+                        <GridViewColumn x:Name="EmployeeName"  Width="150">
+                            <HeaderedContentControl>
+                                <HeaderedContentControl.Template>
+                                    <ControlTemplate>
+                                        <StackPanel Orientation="Vertical" Width="{Binding ActualWidth, ElementName=EmployeeName}">
+                                            <TextBlock Text="Name"></TextBlock>
+                                            <TextBox Text="{Binding FilterName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                        </StackPanel>                                        
+                                    </ControlTemplate>
+                                </HeaderedContentControl.Template>
+                            </HeaderedContentControl>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <DockPanel>
@@ -49,7 +64,7 @@
                         </GridViewColumn>
                         <GridViewColumn x:Name="Department" Header="Department" Width="250">
                             <GridViewColumn.CellTemplate>
-                                <DataTemplate>
+                                <DataTemplate DataType="components:IEmployeeViewModel">
                                     <DockPanel>
                                         <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=Employee.Department}" ToolTip="{Binding Path=Employee.Department}" />
                                     </DockPanel>
@@ -77,6 +92,7 @@
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+            <!-- our custom MouseDoubleClick from WPF interaction-->
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding EditCommand}"/>
